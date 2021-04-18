@@ -10,7 +10,7 @@
   },
   "scripts": {
     "server": "ts-node-dev --inspect --clear --respawn --transpile-only --ignore-watch node_modules src/server.ts",
-    "test": "ts-node-dev --clear --respawn --transpile-only --ignore-watch node_modules src/server.ts"
+    "serv": "ts-node-dev --clear --respawn --transpile-only --ignore-watch node_modules src/server.ts"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
