@@ -12,6 +12,13 @@ const BranchSchema: Schema = new Schema({
         type: String,
         require: true,
     },
+    email: {
+        type: String,
+        require: true,
+        unique: true,
+    },
+    phone1: String,
+    phone2: String,
     headquarter: {
         type: Boolean,
         default: false,

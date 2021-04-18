@@ -22,6 +22,8 @@ const UserSchema: Schema = new Schema({
         require: true,
         unique: true,
     },
+    phone1: String,
+    phone2: String,
     img: String,
     manager: {
         type: Boolean,
