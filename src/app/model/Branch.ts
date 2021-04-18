@@ -19,10 +19,6 @@ const BranchSchema: Schema = new Schema({
     },
     phone1: String,
     phone2: String,
-    headquarter: {
-        type: Boolean,
-        default: false,
-    },
 },{
     timestamps: true,
 })

@@ -3,7 +3,7 @@ import { Schema, model, Document } from 'mongoose';
 interface UserModelInterface extends Document{}
 
 const UserSchema: Schema = new Schema({
-    BranchId: {
+    branchId: {
         type: Schema.Types.ObjectId,
         ref: 'Branch',
         required: true,
@@ -24,11 +24,6 @@ const UserSchema: Schema = new Schema({
     },
     phone1: String,
     phone2: String,
-    img: String,
-    manager: {
-        type: Boolean,
-        default: false,
-    },
 },{
     timestamps: true,
 })

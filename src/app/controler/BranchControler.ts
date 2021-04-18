@@ -1,62 +1,62 @@
 import { Request, Response } from 'express'
-import Company from '../model/Company';
+import Branch from '../model/Branch';
 
 export = {
     async store(req: Request, res: Response){
-        const { name, cnpj, email, phone1, phone2 } = req.body;
+        const { companyId, name, email, phone1, phone2 } = req.body;
         try {
-            const company = await Company.create({ name, cnpj, email, phone1, phone2})
-            return res.json({ company, menssage: "create sucess!" })
+            const branch = await Branch.create({ companyId, name, email, phone1, phone2})
+            return res.json({ branch, menssage: "create sucess!" })
         } catch (error) {
             return res.json(error);
         }
     },
     async update(req: Request, res: Response){
-        const { companyId } = req.params;
-        const companyExists = await Company.findById(companyId)
-        if (!companyExists) {
-            return res.status(400).json({ erro: "company not exists!" })
+        const { branchId } = req.params;
+        const branchExists = await Branch.findById(branchId)
+        if (!branchExists) {
+            return res.status(400).json({ erro: "branch not exists!" })
         }
 
         const { name, email, phone1, phone2 } = req.body;
         try {
-            const company = await Company.findByIdAndUpdate(companyId, {
+            const branch = await Branch.findByIdAndUpdate(branchId, {
                 name, email, phone1, phone2
             })
-            return res.json({ company, menssage: "update sucess!" })
+            return res.json({ branch, menssage: "update sucess!" })
         } catch (error) {
             return res.json(error);
         }
     },
     async delete(req: Request, res: Response){
-        const { companyId } = req.params;
-        const companyExists = await Company.findById(companyId)
-        if (!companyExists) {
-            return res.status(400).json({ erro: "company not exists!" })
+        const { branchId } = req.params;
+        const branchExists = await Branch.findById(branchId)
+        if (!branchExists) {
+            return res.status(400).json({ erro: "branch not exists!" })
         }
         try {
-            const company = await Company.findByIdAndDelete(companyId)
-            return res.json({ company, menssage: "delete sucess!" })
+            const branch = await Branch.findByIdAndDelete(branchId)
+            return res.json({ branch, menssage: "delete sucess!" })
         } catch (error) {
             return res.json(error);
         }
     },
     async show(req: Request, res: Response){
         try {
-            const { companyId } = req.params;
-            const companyExists = await Company.findById(companyId)
-            if (!companyExists) {
-                return res.status(400).json({ erro: "company not exists!" })
+            const { branchId } = req.params;
+            const branchExists = await Branch.findById(branchId)
+            if (!branchExists) {
+                return res.status(400).json({ erro: "branch not exists!" })
             }
-            return res.json(companyExists)
+            return res.json(branchExists)
         } catch (error) {
             return res.json(error);
         }
     },
     async index(req: Request, res: Response){
         try {
-            const company = await Company.find()
-            return res.json(company)
+            const branch = await Branch.find()
+            return res.json(branch)
         } catch (error) {
             return res.json(error);
         }

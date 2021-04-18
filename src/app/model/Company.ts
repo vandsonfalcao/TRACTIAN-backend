@@ -9,13 +9,6 @@ const CompanySchema: Schema = new Schema({
         require: true,
         unique: true,
     },
-    email: {
-        type: String,
-        require: true,
-        unique: true,
-    },
-    phone1: String,
-    phone2: String,
 },{
     timestamps: true,
 })
